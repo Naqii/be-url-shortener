@@ -21,6 +21,12 @@ async function init() {
 
     app.use(errorHandler);
 
+    app.get("/", (req, res) => {
+      res.status(200).json({
+        message: "Server is Running",
+        data: null
+      })
+    })
     app.use('/api', router);
 
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
